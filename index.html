@@ -119,12 +119,12 @@ color:#777;
 <div class="section">
 <div class="card">
 <h2>Nathaniel Alvaro</h2>
-<p>Putra Bapak Nathan & Ibu Nathan</p>
+<p>Putra Bapak Abdul & Ibu Siti</p>
 <br>
 <h2>&</h2>
 <br>
-<h2>Aisyah</h2>
-<p>Putri Bapak Abigail & Ibu Abigail</p>
+<h2>Abigail</h2>
+<p>Putri Bapak Aziz & Ibu amir</p>
 </div>
 </div>
 
@@ -168,20 +168,33 @@ let music=document.getElementById("music");
 music.play().catch(()=>{});
 }
 
-/* COUNTDOWN */
-const eventDate = new Date("May 10, 2026 09:00:00").getTime();
+<script>
+const targetDate = new Date("March 3, 2026 04:30:00").getTime();
 
-setInterval(function(){
-const now=new Date().getTime();
-const gap=eventDate-now;
+function updateCountdown() {
 
-const d=Math.floor(gap/(1000*60*60*24));
-const h=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
-const m=Math.floor((gap%(1000*60*60))/(1000*60));
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
-document.getElementById("countdown").innerHTML=
-d+" Hari "+h+" Jam "+m+" Menit Lagi";
-},1000);
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    `
+    <h3>${days} Hari</h3>
+    <h3>${hours} Jam</h3>
+    <h3>${minutes} Menit</h3>
+    <h3>${seconds} Detik</h3>
+    `;
+}
+
+// jalan tiap 1 detik (INI YANG BIKIN GERAK TERUS)
+setInterval(updateCountdown, 1000);
+
+updateCountdown();
+</script>
 
 </script>
 
