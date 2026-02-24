@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Undangan Pernikahan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8f5f0;
+color:#333;
+text-align:center;
+}
+
+/* OPENING */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://picsum.photos/900/1400?blur=2");
+background-size:cover;
+color:white;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:42px;
+margin:10px 0;
+}
+
+.btn{
+margin-top:20px;
+padding:14px 30px;
+background:#c6a96b;
+border:none;
+border-radius:30px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* CONTENT */
+.section{
+padding:70px 20px;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+color:#a8894f;
+margin-bottom:10px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+max-width:400px;
+margin:auto;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+#countdown{
+font-size:22px;
+margin-top:15px;
+font-weight:bold;
+}
+
+.ayat{
+max-width:600px;
+margin:auto;
+font-style:italic;
+line-height:1.6;
+}
+
+footer{
+padding:40px;
+font-size:14px;
+color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<!-- OPENING -->
+<div class="hero" id="opening">
+<h3>Undangan Pernikahan</h3>
+<h1>Nathaniel alvaro & Abigail</h1>
+<p>3 Maret 2026</p>
+<button class="btn" onclick="openInvite()">Buka Undangan</button>
+</div>
+
+<!-- CONTENT -->
+<div id="content" style="display:none;">
+
+<div class="section">
+<h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+<p>Dengan memohon rahmat Allah SWT, kami mengundang Anda untuk menghadiri pernikahan kami.</p>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>Nathaniel Alvaro</h2>
+<p>Putra Bapak Nathan & Ibu Nathan</p>
+<br>
+<h2>&</h2>
+<br>
+<h2>Aisyah</h2>
+<p>Putri Bapak Abigail & Ibu Abigail</p>
+</div>
+</div>
+
+<div class="section">
+<h2>Akad & Resepsi</h2>
+<p>Selasa, 3 Maret 2026</p>
+<p>Pukul 04.30 WIB</p>
+<p>Lobby SMP An Nahl</p>
+
+<div id="countdown"></div>
+
+<br>
+<a href="https://maps.app.goo.gl/xnDmYkQZEpaNbCxA8" target="_blank">
+<button class="btn">Buka Google Maps</button>
+</a>
+</div>
+
+<div class="section">
+<h2>QS. Ar-Rum Ayat 21</h2>
+<p class="ayat">
+"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan
+untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya,
+dan dijadikan-Nya di antara kamu rasa kasih dan sayang."
+</p>
+</div>
+
+<footer>
+Terima kasih atas doa dan kehadirannya 🤍
+</footer>
+
+</div>
+
+<script>
+
+/* BUTTON OPEN */
+function openInvite(){
+document.getElementById("opening").style.display="none";
+document.getElementById("content").style.display="block";
+
+let music=document.getElementById("music");
+music.play().catch(()=>{});
+}
+
+/* COUNTDOWN */
+const eventDate = new Date("May 10, 2026 09:00:00").getTime();
+
+setInterval(function(){
+const now=new Date().getTime();
+const gap=eventDate-now;
+
+const d=Math.floor(gap/(1000*60*60*24));
+const h=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((gap%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML=
+d+" Hari "+h+" Jam "+m+" Menit Lagi";
+},1000);
+
+</script>
+
+</body>
+</html>
