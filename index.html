@@ -90,6 +90,18 @@ padding:40px;
 font-size:14px;
 color:#777;
 }
+#musicToggle{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+ }
 </style>
 </head>
 
@@ -213,8 +225,25 @@ setInterval(updateCountdown, 1000);
 
 updateCountdown();
 </script>
+<script>
+function toggleMusic(){
+  const music = document.getElementById("music");
+  const btn = document.getElementById("musicToggle");
 
+  if(music.paused){
+    music.play();
+    btn.innerHTML="🔊";
+  }else{
+    music.pause();
+    btn.innerHTML="🔇";
+  }
+}
 </script>
+</script>
+<audio id="music" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
 
+<button id="musicToggle" onclick="toggleMusic()">🔊</button>
 </body>
 </html>
