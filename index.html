@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<head>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -102,6 +103,9 @@ color:#777;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
  }
+  html {
+  scroll-behavior: smooth;
+  }
 </style>
 </head>
 
@@ -113,7 +117,7 @@ color:#777;
 </audio>
 
 <!-- OPENING -->
-<div class="hero" id="opening">
+<div class="hero" data-aos="fade-up" id="opening">
 <h3>Undangan Pernikahan</h3>
 <h1>Nathan & Claudya</h1>
 <p>3 Maret 2026</p>
@@ -250,5 +254,13 @@ setInterval(updateCountdown,1000);
 
 <button id="musicToggle" 
   onclick="toggleMusic()">🔊</button>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 </body>
 </html>
