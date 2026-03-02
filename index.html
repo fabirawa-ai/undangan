@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Undangan Pernikahan</title>
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: radial-gradient(circle at top, #fffaf2 0%, #f8f5f0 60%, #f1ece3 100%);
@@ -37,17 +35,8 @@
       z-index: -1;
       animation: float 8s ease-in-out infinite;
     }
-
-    .ornament.one {
-      top: -120px;
-      left: -70px;
-    }
-
-    .ornament.two {
-      bottom: -120px;
-      right: -80px;
-      animation-delay: 1.5s;
-    }
+    .ornament.one { top: -120px; left: -70px; }
+    .ornament.two { bottom: -120px; right: -80px; animation-delay: 1.5s; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -55,7 +44,7 @@
     }
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -63,12 +52,13 @@
       background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
       url("https://picsum.photos/900/1400?blur=2");
       background-size: cover;
+      background-position: center;
       color: white;
       padding: 20px;
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       font-size: 46px;
       margin: 10px 0;
       letter-spacing: 1px;
@@ -106,7 +96,7 @@
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
       color: #a8894f;
       margin-bottom: 10px;
     }
@@ -205,6 +195,7 @@
       padding: 12px;
       border-radius: 10px;
       box-shadow: 0 5px 14px rgba(0, 0, 0, .06);
+      word-break: break-word;
     }
 
     footer {
@@ -233,8 +224,8 @@
   <div class="ornament two"></div>
 
   <audio id="music" loop preload="auto" playsinline>
-  <source src="musik.mp3" type="audio/mpeg">
-</audio>
+    <source src="musik.mp3" type="audio/mpeg" />
+  </audio>
 
   <div class="hero" data-aos="fade-up" id="opening">
     <h3>Undangan Pernikahan</h3>
@@ -253,9 +244,9 @@
       <div class="card">
         <h2>Nathan</h2>
         <p>Putra Bapak Abdul & Ibu Siti</p>
-        <br>
+        <br />
         <h2>&</h2>
-        <br>
+        <br />
         <h2>Claudya</h2>
         <p>Putri Bapak Andre & Ibu Miranda</p>
       </div>
@@ -269,7 +260,7 @@
 
       <div id="countdown"></div>
 
-      <br>
+      <br />
       <a href="https://maps.app.goo.gl/xnDmYkQZEpaNbCxA8" target="_blank" rel="noopener noreferrer">
         <button class="btn">Buka Google Maps</button>
       </a>
@@ -296,7 +287,7 @@
     <div class="section" data-aos="fade-up">
       <h2>Kirim Ucapan</h2>
       <form class="wish-form" onsubmit="addWish(event)">
-        <input type="text" id="name" placeholder="Nama Anda" required>
+        <input type="text" id="name" placeholder="Nama Anda" required />
         <textarea id="message" rows="3" placeholder="Tulis doa dan ucapan terbaik..." required></textarea>
         <button class="btn" type="submit">Kirim Ucapan</button>
       </form>
@@ -312,9 +303,7 @@
       </p>
     </div>
 
-    <footer>
-      Terima kasih atas doa dan kehadirannya 🤍
-    </footer>
+    <footer>Terima kasih atas doa dan kehadirannya 🤍</footer>
   </div>
 
   <button id="musicToggle" onclick="toggleMusic()">🔊</button>
@@ -324,80 +313,24 @@
   <script>
     AOS.init({
       duration: 1200,
-      easing: 'ease-out-cubic',
+      easing: "ease-out-cubic",
       once: true,
       offset: 120
     });
 
-    const targetDate = new Date('March 3, 2026 16:30:00').getTime();
+    const targetDate = new Date("March 3, 2026 16:30:00").getTime();
     let musicPlaying = false;
 
-    <script>
-  let musicPlaying = false;
-
-  async function openInvite() {
-    document.getElementById('opening').style.display = 'none';
-    document.getElementById('content').style.display = 'block';
-
-    const music = document.getElementById('music');
-    const btn = document.getElementById('musicToggle');
-
-    if (music && !musicPlaying) {
-      try {
-        music.currentTime = 0; // kalau mau mulai dari detik tertentu, ganti mis. 42
-        music.volume = 0;
-        await music.play();
-        musicPlaying = true;
-        btn.innerHTML = '🔇'; // artinya sekarang musik ON, klik untuk mute
-
-        let vol = 0;
-        const fade = setInterval(() => {
-          if (vol < 0.4) {
-            vol += 0.02;
-            music.volume = vol;
-          } else {
-            clearInterval(fade);
-          }
-        }, 200);
-      } catch (err) {
-        console.error('Gagal play di openInvite:', err);
-        alert('Audio gagal diputar. Cek file musik.mp3 / format file.');
-      }
-    }
-
-    updateCountdown();
-    loadWishes();
-  }
-
-  async function toggleMusic() {
-    const music = document.getElementById('music');
-    const btn = document.getElementById('musicToggle');
-    if (!music) return;
-
-    try {
-      if (music.paused) {
-        await music.play();
-        btn.innerHTML = '🔇'; // sedang ON
-      } else {
-        music.pause();
-        btn.innerHTML = '🔊'; // sedang OFF
-      }
-    } catch (err) {
-      console.error('Gagal toggle audio:', err);
-      alert('Audio gagal diputar.');
-    }
-  }
-</script>
-<script>
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = targetDate - now;
+
       const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
       const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
       const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
 
-      document.getElementById('countdown').innerHTML = `
+      document.getElementById("countdown").innerHTML = `
         <div class="time-box">${days}<span>Hari</span></div>
         <div class="time-box">${hours}<span>Jam</span></div>
         <div class="time-box">${minutes}<span>Menit</span></div>
@@ -405,44 +338,97 @@
       `;
     }
 
-    const SUPABASE_URL = 'https://gnfurqwmzrprgokjtofs.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_R8OLDqZAvZq2RnCi4TP2og_L3qOK4fZ';
+    async function openInvite() {
+      document.getElementById("opening").style.display = "none";
+      document.getElementById("content").style.display = "block";
+
+      const music = document.getElementById("music");
+      const btn = document.getElementById("musicToggle");
+
+      if (music && !musicPlaying) {
+        try {
+          music.currentTime = 0;
+          music.volume = 0;
+          await music.play();
+          musicPlaying = true;
+          btn.innerHTML = "🔇";
+
+          let vol = 0;
+          const fade = setInterval(() => {
+            if (vol < 0.4) {
+              vol += 0.02;
+              music.volume = vol;
+            } else {
+              clearInterval(fade);
+            }
+          }, 200);
+        } catch (err) {
+          console.error("Gagal play saat open:", err);
+          alert("Audio gagal diputar. Cek file musik.mp3 kamu.");
+        }
+      }
+
+      updateCountdown();
+      loadWishes();
+    }
+
+    async function toggleMusic() {
+      const music = document.getElementById("music");
+      const btn = document.getElementById("musicToggle");
+      if (!music) return;
+
+      try {
+        if (music.paused) {
+          await music.play();
+          btn.innerHTML = "🔇";
+        } else {
+          music.pause();
+          btn.innerHTML = "🔊";
+        }
+      } catch (err) {
+        console.error("Gagal toggle audio:", err);
+        alert("Audio gagal diputar.");
+      }
+    }
+
+    const SUPABASE_URL = "https://gnfurqwmzrprgokjtofs.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_R8OLDqZAvZq2RnCi4TP2og_L3qOK4fZ";
     const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     function escapeHtml(str) {
       return str
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll("\"", "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
     async function loadWishes() {
-      const wishList = document.getElementById('wishList');
-      wishList.innerHTML = '<p>Memuat ucapan...</p>';
+      const wishList = document.getElementById("wishList");
+      wishList.innerHTML = "<p>Memuat ucapan...</p>";
 
       const { data, error } = await sb
-        .from('wishes')
-        .select('name,message,created_at')
-        .order('created_at', { ascending: false })
+        .from("wishes")
+        .select("name,message,created_at")
+        .order("created_at", { ascending: false })
         .limit(50);
 
       if (error) {
-        wishList.innerHTML = '<p>Gagal memuat ucapan.</p>';
+        wishList.innerHTML = "<p>Gagal memuat ucapan.</p>";
         return;
       }
 
-      wishList.innerHTML = '';
+      wishList.innerHTML = "";
 
-      if (!data.length) {
-        wishList.innerHTML = '<p>Belum ada ucapan. Jadi yang pertama ya ✨</p>';
+      if (!data || !data.length) {
+        wishList.innerHTML = "<p>Belum ada ucapan. Jadi yang pertama ya ✨</p>";
         return;
       }
 
       data.forEach((wish) => {
-        const item = document.createElement('div');
-        item.className = 'wish-item';
+        const item = document.createElement("div");
+        item.className = "wish-item";
         item.innerHTML = `<strong>${escapeHtml(wish.name)}</strong><p>${escapeHtml(wish.message)}</p>`;
         wishList.appendChild(item);
       });
@@ -451,16 +437,14 @@
     async function addWish(event) {
       event.preventDefault();
 
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
       if (!name || !message) return;
 
-      const { error } = await sb
-        .from('wishes')
-        .insert([{ name, message }]);
+      const { error } = await sb.from("wishes").insert([{ name, message }]);
 
       if (error) {
-        alert('Gagal kirim ucapan, coba lagi.');
+        alert("Gagal kirim ucapan, coba lagi.");
         return;
       }
 
@@ -468,6 +452,7 @@
       loadWishes();
     }
 
+    updateCountdown();
     setInterval(updateCountdown, 1000);
     loadWishes();
   </script>
