@@ -338,7 +338,10 @@
       const music = document.getElementById('music');
       if (music && !musicPlaying) {
         music.volume = 0;
-        music.play().catch(() => {});
+        music.play().catch((err) => {
+  console.error('Gagal autoplay setelah klik:', err);
+  alert('Musik gagal diputar. Cek file musik.mp3 kamu.');
+});
         musicPlaying = true;
 
         let vol = 0;
@@ -356,19 +359,24 @@
       loadWishes();
     }
 
-    function toggleMusic() {
-      const music = document.getElementById('music');
-      const btn = document.getElementById('musicToggle');
-      if (!music) return;
+  async function toggleMusic() {
+  const music = document.getElementById('music');
+  const btn = document.getElementById('musicToggle');
+  if (!music) return;
 
-      if (music.paused) {
-        music.play().catch(() => {});
-        btn.innerHTML = '🔊';
-      } else {
-        music.pause();
-        btn.innerHTML = '🔇';
-      }
+  try {
+    if (music.paused) {
+      await music.play();
+      btn.innerHTML = '🔇'; // artinya sekarang lagi nyala, klik untuk mute
+    } else {
+      music.pause();
+      btn.innerHTML = '🔊'; // artinya sekarang mati, klik untuk nyalain
     }
+  } catch (err) {
+    alert('Audio gagal diputar. Cek file musik.mp3 kamu.');
+    console.error(err);
+  }
+}
 
     function updateCountdown() {
       const now = new Date().getTime();
