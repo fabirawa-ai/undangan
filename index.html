@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Pernikahan</title>
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: radial-gradient(circle at top, #fffaf2 0%, #f8f5f0 60%, #f1ece3 100%);
@@ -36,8 +38,16 @@
       animation: float 8s ease-in-out infinite;
     }
 
-    .ornament.one { top: -120px; left: -70px; }
-    .ornament.two { bottom: -120px; right: -80px; animation-delay: 1.5s; }
+    .ornament.one {
+      top: -120px;
+      left: -70px;
+    }
+
+    .ornament.two {
+      bottom: -120px;
+      right: -80px;
+      animation-delay: 1.5s;
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -45,18 +55,23 @@
     }
 
     .hero {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      color: #fff;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("https://picsum.photos/900/1400?blur=2");
+      background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
+      url("https://picsum.photos/900/1400?blur=2");
       background-size: cover;
-      background-position: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      margin: 10px 0;
+      letter-spacing: 1px;
     }
 
     .hero h3 {
@@ -66,23 +81,16 @@
       opacity: 0.9;
     }
 
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 46px;
-      margin: 10px 0;
-      letter-spacing: 1px;
-    }
-
     .btn {
       margin-top: 20px;
       padding: 14px 30px;
       background: #c6a96b;
       border: none;
       border-radius: 30px;
-      color: #fff;
+      color: white;
       font-size: 16px;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
       box-shadow: 0 8px 18px rgba(75, 54, 24, 0.25);
     }
 
@@ -98,7 +106,7 @@
     }
 
     h2 {
-      font-family: "Playfair Display", serif;
+      font-family: 'Playfair Display', serif;
       color: #a8894f;
       margin-bottom: 10px;
     }
@@ -110,7 +118,7 @@
       border-radius: 18px;
       max-width: 440px;
       margin: auto;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
     }
 
     #countdown {
@@ -129,7 +137,7 @@
       background: #fff;
       border-radius: 14px;
       padding: 12px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
     }
 
     .time-box span {
@@ -155,10 +163,10 @@
     }
 
     .story-item {
-      background: #fff;
+      background: white;
       border-radius: 14px;
       padding: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
     }
 
     .story-item h4 {
@@ -196,8 +204,7 @@
       text-align: left;
       padding: 12px;
       border-radius: 10px;
-      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
-      word-break: break-word;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, .06);
     }
 
     footer {
@@ -210,7 +217,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.9);
       border: none;
       border-radius: 50%;
       font-size: 20px;
@@ -225,12 +232,10 @@
   <div class="ornament one"></div>
   <div class="ornament two"></div>
 
-  <!-- MUSIC -->
   <audio id="music" loop>
-    <source src="musik.mp3" type="audio/mpeg" />
+    <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- OPENING -->
   <div class="hero" data-aos="fade-up" id="opening">
     <h3>Undangan Pernikahan</h3>
     <h1>Nathan & Claudya</h1>
@@ -238,7 +243,6 @@
     <button class="btn" onclick="openInvite()">Buka Undangan</button>
   </div>
 
-  <!-- CONTENT -->
   <div id="content" style="display:none;">
     <div class="section" data-aos="fade-up">
       <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
@@ -249,9 +253,9 @@
       <div class="card">
         <h2>Nathan</h2>
         <p>Putra Bapak Abdul & Ibu Siti</p>
-        <br />
+        <br>
         <h2>&</h2>
-        <br />
+        <br>
         <h2>Claudya</h2>
         <p>Putri Bapak Andre & Ibu Miranda</p>
       </div>
@@ -260,12 +264,12 @@
     <div class="section" data-aos="fade-up">
       <h2>Akad & Resepsi</h2>
       <p>Selasa, 3 Maret 2026</p>
-      <p>Pukul 04.30 WIB</p>
+      <p>Pukul 16.30 WIB</p>
       <p>Aula SMA AN NAHL</p>
 
       <div id="countdown"></div>
 
-      <br />
+      <br>
       <a href="https://maps.app.goo.gl/xnDmYkQZEpaNbCxA8" target="_blank" rel="noopener noreferrer">
         <button class="btn">Buka Google Maps</button>
       </a>
@@ -292,7 +296,7 @@
     <div class="section" data-aos="fade-up">
       <h2>Kirim Ucapan</h2>
       <form class="wish-form" onsubmit="addWish(event)">
-        <input type="text" id="name" placeholder="Nama Anda" required />
+        <input type="text" id="name" placeholder="Nama Anda" required>
         <textarea id="message" rows="3" placeholder="Tulis doa dan ucapan terbaik..." required></textarea>
         <button class="btn" type="submit">Kirim Ucapan</button>
       </form>
@@ -316,22 +320,23 @@
   <button id="musicToggle" onclick="toggleMusic()">🔊</button>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     AOS.init({
       duration: 1200,
-      easing: "ease-out-cubic",
+      easing: 'ease-out-cubic',
       once: true,
       offset: 120
     });
 
-    const targetDate = new Date("March 3, 2026 04:30:00").getTime();
+    const targetDate = new Date('March 3, 2026 16:30:00').getTime();
     let musicPlaying = false;
 
     function openInvite() {
-      document.getElementById("opening").style.display = "none";
-      document.getElementById("content").style.display = "block";
+      document.getElementById('opening').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
 
-      const music = document.getElementById("music");
+      const music = document.getElementById('music');
       if (music && !musicPlaying) {
         music.volume = 0;
         music.play().catch(() => {});
@@ -353,29 +358,28 @@
     }
 
     function toggleMusic() {
-      const music = document.getElementById("music");
-      const btn = document.getElementById("musicToggle");
+      const music = document.getElementById('music');
+      const btn = document.getElementById('musicToggle');
       if (!music) return;
 
       if (music.paused) {
         music.play().catch(() => {});
-        btn.innerHTML = "🔊";
+        btn.innerHTML = '🔊';
       } else {
         music.pause();
-        btn.innerHTML = "🔇";
+        btn.innerHTML = '🔇';
       }
     }
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = targetDate - now;
-
       const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
       const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
       const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
 
-      document.getElementById("countdown").innerHTML = `
+      document.getElementById('countdown').innerHTML = `
         <div class="time-box">${days}<span>Hari</span></div>
         <div class="time-box">${hours}<span>Jam</span></div>
         <div class="time-box">${minutes}<span>Menit</span></div>
@@ -383,58 +387,71 @@
       `;
     }
 
-    function getWishes() {
-      try {
-        return JSON.parse(localStorage.getItem("wishes") || "[]");
-      } catch {
-        return [];
+    const SUPABASE_URL = 'https://gnfurqwmzrprgokjtofs.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_R8OLDqZAvZq2RnCi4TP2og_L3qOK4fZ';
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    async function loadWishes() {
+      const wishList = document.getElementById('wishList');
+      wishList.innerHTML = '<p>Memuat ucapan...</p>';
+
+      const { data, error } = await sb
+        .from('wishes')
+        .select('name,message,created_at')
+        .order('created_at', { ascending: false })
+        .limit(50);
+
+      if (error) {
+        wishList.innerHTML = '<p>Gagal memuat ucapan.</p>';
+        return;
       }
-    }
 
-    function saveWishes(wishes) {
-      localStorage.setItem("wishes", JSON.stringify(wishes.slice(0, 20)));
-    }
+      wishList.innerHTML = '';
 
-    function loadWishes() {
-      const wishList = document.getElementById("wishList");
-      wishList.innerHTML = "";
-      const wishes = getWishes();
+      if (!data.length) {
+        wishList.innerHTML = '<p>Belum ada ucapan. Jadi yang pertama ya ✨</p>';
+        return;
+      }
 
-      wishes.forEach((wish) => {
-        const item = document.createElement("div");
-        item.className = "wish-item";
+      data.forEach((wish) => {
+        const item = document.createElement('div');
+        item.className = 'wish-item';
         item.innerHTML = `<strong>${escapeHtml(wish.name)}</strong><p>${escapeHtml(wish.message)}</p>`;
         wishList.appendChild(item);
       });
     }
 
-    function addWish(event) {
+    async function addWish(event) {
       event.preventDefault();
-      const nameInput = document.getElementById("name");
-      const messageInput = document.getElementById("message");
-      const name = nameInput.value.trim();
-      const message = messageInput.value.trim();
 
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
       if (!name || !message) return;
 
-      const wishes = getWishes();
-      wishes.unshift({ name, message });
-      saveWishes(wishes);
-      loadWishes();
+      const { error } = await sb
+        .from('wishes')
+        .insert([{ name, message }]);
+
+      if (error) {
+        alert('Gagal kirim ucapan, coba lagi.');
+        return;
+      }
+
       event.target.reset();
+      loadWishes();
     }
 
-    function escapeHtml(str) {
-      return str
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll("\"", "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
-    updateCountdown();
     setInterval(updateCountdown, 1000);
+    loadWishes();
   </script>
 </body>
 </html>
