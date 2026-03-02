@@ -232,8 +232,9 @@
   <div class="ornament one"></div>
   <div class="ornament two"></div>
 
-  <audio id="music" src="music.mp3" autoplay loop></audio>
-    <source src="musik.mp3" type="audio/mpeg">
+  <audio id="music" loop preload="auto" playsinline>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
 
   <div class="hero" data-aos="fade-up" id="opening">
     <h3>Undangan Pernikahan</h3>
@@ -331,18 +332,23 @@
     const targetDate = new Date('March 3, 2026 16:30:00').getTime();
     let musicPlaying = false;
 
-    function openInvite() {
-      document.getElementById('opening').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
+    <script>
+  let musicPlaying = false;
 
-      const music = document.getElementById('music');
-      if (music && !musicPlaying) {
+  async function openInvite() {
+    document.getElementById('opening').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+
+    const music = document.getElementById('music');
+    const btn = document.getElementById('musicToggle');
+
+    if (music && !musicPlaying) {
+      try {
+        music.currentTime = 0; // kalau mau mulai dari detik tertentu, ganti mis. 42
         music.volume = 0;
-        music.play().catch((err) => {
-  console.error('Gagal autoplay setelah klik:', err);
-  alert('Musik gagal diputar. Cek file musik.mp3 kamu.');
-});
+        await music.play();
         musicPlaying = true;
+        btn.innerHTML = '🔇'; // artinya sekarang musik ON, klik untuk mute
 
         let vol = 0;
         const fade = setInterval(() => {
@@ -353,30 +359,35 @@
             clearInterval(fade);
           }
         }, 200);
+      } catch (err) {
+        console.error('Gagal play di openInvite:', err);
+        alert('Audio gagal diputar. Cek file musik.mp3 / format file.');
       }
-
-      updateCountdown();
-      loadWishes();
     }
+
+    updateCountdown();
+    loadWishes();
+  }
 
   async function toggleMusic() {
-  const music = document.getElementById('music');
-  const btn = document.getElementById('musicToggle');
-  if (!music) return;
+    const music = document.getElementById('music');
+    const btn = document.getElementById('musicToggle');
+    if (!music) return;
 
-  try {
-    if (music.paused) {
-      await music.play();
-      btn.innerHTML = '🔇'; // artinya sekarang lagi nyala, klik untuk mute
-    } else {
-      music.pause();
-      btn.innerHTML = '🔊'; // artinya sekarang mati, klik untuk nyalain
+    try {
+      if (music.paused) {
+        await music.play();
+        btn.innerHTML = '🔇'; // sedang ON
+      } else {
+        music.pause();
+        btn.innerHTML = '🔊'; // sedang OFF
+      }
+    } catch (err) {
+      console.error('Gagal toggle audio:', err);
+      alert('Audio gagal diputar.');
     }
-  } catch (err) {
-    alert('Audio gagal diputar. Cek file musik.mp3 kamu.');
-    console.error(err);
   }
-}
+</script>
 
     function updateCountdown() {
       const now = new Date().getTime();
