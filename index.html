@@ -232,7 +232,15 @@
   <div class="ornament one"></div>
   <div class="ornament two"></div>
 
-  <audio id="music" loop>
+  <audio id="music" src="music.mp3" autoplay loop></audio>
+
+<script>
+const music = document.getElementById("music");
+
+music.addEventListener("loadedmetadata", function () {
+    music.currentTime = 30;
+});
+</script>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
