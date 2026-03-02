@@ -1,268 +1,440 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan</title>
 
-<title>Undangan Pernikahan</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+    html { scroll-behavior: smooth; }
 
-body{
-background:#f8f5f0;
-color:#333;
-text-align:center;
-}
+    body {
+      background: radial-gradient(circle at top, #fffaf2 0%, #f8f5f0 60%, #f1ece3 100%);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-/* OPENING */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("https://picsum.photos/900/1400?blur=2");
-background-size:cover;
-color:white;
-}
+    .ornament {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(198, 169, 107, 0.16);
+      filter: blur(4px);
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
+    }
 
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:42px;
-margin:10px 0;
-}
+    .ornament.one { top: -120px; left: -70px; }
+    .ornament.two { bottom: -120px; right: -80px; animation-delay: 1.5s; }
 
-.btn{
-margin-top:20px;
-padding:14px 30px;
-background:#c6a96b;
-border:none;
-border-radius:30px;
-color:white;
-font-size:16px;
-cursor:pointer;
-}
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(18px); }
+    }
 
-/* CONTENT */
-.section{
-padding:70px 20px;
-}
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("https://picsum.photos/900/1400?blur=2");
+      background-size: cover;
+      background-position: center;
+    }
 
-h2{
-font-family:'Playfair Display',serif;
-color:#a8894f;
-margin-bottom:10px;
-}
+    .hero h3 {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+      opacity: 0.9;
+    }
 
-.card{
-background:white;
-padding:25px;
-border-radius:18px;
-max-width:400px;
-margin:auto;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 46px;
+      margin: 10px 0;
+      letter-spacing: 1px;
+    }
 
-#countdown{
-font-size:22px;
-margin-top:15px;
-font-weight:bold;
-}
+    .btn {
+      margin-top: 20px;
+      padding: 14px 30px;
+      background: #c6a96b;
+      border: none;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 18px rgba(75, 54, 24, 0.25);
+    }
 
-.ayat{
-max-width:600px;
-margin:auto;
-font-style:italic;
-line-height:1.6;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(75, 54, 24, 0.3);
+    }
 
-footer{
-padding:40px;
-font-size:14px;
-color:#777;
-}
-#musicToggle{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.8);
-  border: none;
-  border-radius: 50%;
-  font-size: 20px;
-  padding: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
- }
-  html {
-  scroll-behavior: smooth;
-  }
-</style>
+    .section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      color: #a8894f;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      padding: 25px;
+      border-radius: 18px;
+      max-width: 440px;
+      margin: auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    #countdown {
+      font-size: 22px;
+      margin-top: 20px;
+      font-weight: bold;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 12px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .time-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      color: #6f6f6f;
+      margin-top: 5px;
+    }
+
+    .ayat {
+      max-width: 600px;
+      margin: auto;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .story-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .story-item h4 {
+      color: #a8894f;
+      margin-bottom: 6px;
+    }
+
+    .wish-form {
+      max-width: 520px;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .wish-form input,
+    .wish-form textarea {
+      width: 100%;
+      border: 1px solid #e5dcc9;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .wish-list {
+      margin: 20px auto 0;
+      max-width: 520px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .wish-item {
+      background: #fff;
+      border-left: 4px solid #c6a96b;
+      text-align: left;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    #musicToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      padding: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 30;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="ornament one"></div>
+  <div class="ornament two"></div>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-<source src="musik.mp3" type="audio/mpeg">
-</audio>
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="musik.mp3" type="audio/mpeg" />
+  </audio>
 
-<!-- OPENING -->
-<div class="hero" data-aos="fade-up" id="opening">
-<h3>Undangan Pernikahan</h3>
-<h1>Nathan & Claudya</h1>
-<p>3 Maret 2026</p>
-<button class="btn" onclick="openInvite()">Buka Undangan</button>
-</div>
+  <!-- OPENING -->
+  <div class="hero" data-aos="fade-up" id="opening">
+    <h3>Undangan Pernikahan</h3>
+    <h1>Nathan & Claudya</h1>
+    <p>3 Maret 2026</p>
+    <button class="btn" onclick="openInvite()">Buka Undangan</button>
+  </div>
 
-<!-- CONTENT -->
-<div id="content" style="display:none;">
+  <!-- CONTENT -->
+  <div id="content" style="display:none;">
+    <div class="section" data-aos="fade-up">
+      <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+      <p>Dengan memohon rahmat Allah SWT, kami mengundang Anda untuk menghadiri pernikahan kami.</p>
+    </div>
 
-<div class="section">
-<h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-<p>Dengan memohon rahmat Allah SWT, kami mengundang Anda untuk menghadiri pernikahan kami.</p>
-</div>
+    <div class="section" data-aos="zoom-in">
+      <div class="card">
+        <h2>Nathan</h2>
+        <p>Putra Bapak Abdul & Ibu Siti</p>
+        <br />
+        <h2>&</h2>
+        <br />
+        <h2>Claudya</h2>
+        <p>Putri Bapak Andre & Ibu Miranda</p>
+      </div>
+    </div>
 
-<div class="section">
-<div class="card">
-<h2>Nathan</h2>
-<p>Putra Bapak Abdul & Ibu Siti</p>
-<br>
-<h2>&</h2>
-<br>
-<h2>Claudya</h2>
-<p>Putri Bapak Andre & Ibu Miranda</p>
-</div>
-</div>
+    <div class="section" data-aos="fade-up">
+      <h2>Akad & Resepsi</h2>
+      <p>Selasa, 3 Maret 2026</p>
+      <p>Pukul 04.30 WIB</p>
+      <p>Aula SMA AN NAHL</p>
 
-<div class="section">
-<h2>Akad & Resepsi</h2>
-<p>Selasa, 3 Maret 2026</p>
-<p>Pukul 04.30 WIB</p>
-<p>Aula SMA AN NAHL</p>
+      <div id="countdown"></div>
 
-<div id="countdown"></div>
+      <br />
+      <a href="https://maps.app.goo.gl/xnDmYkQZEpaNbCxA8" target="_blank" rel="noopener noreferrer">
+        <button class="btn">Buka Google Maps</button>
+      </a>
+    </div>
 
-<br>
-<a href="https://maps.app.goo.gl/xnDmYkQZEpaNbCxA8" target="_blank">
-<button class="btn">Buka Google Maps</button>
-</a>
-</div>
+    <div class="section" data-aos="fade-up">
+      <h2>Perjalanan Cinta Kami</h2>
+      <div class="story-grid">
+        <div class="story-item">
+          <h4>2020</h4>
+          <p>Pertama bertemu dan saling mengenal.</p>
+        </div>
+        <div class="story-item">
+          <h4>2023</h4>
+          <p>Mulai serius dan saling melibatkan keluarga.</p>
+        </div>
+        <div class="story-item">
+          <h4>2026</h4>
+          <p>InsyaAllah melangkah ke jenjang pernikahan.</p>
+        </div>
+      </div>
+    </div>
 
-<div class="section">
-<h2>QS. Ar-Rum Ayat 21</h2>
-<p class="ayat">
-"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan
-untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya,
-dan dijadikan-Nya di antara kamu rasa kasih dan sayang."
-</p>
-</div>
+    <div class="section" data-aos="fade-up">
+      <h2>Kirim Ucapan</h2>
+      <form class="wish-form" onsubmit="addWish(event)">
+        <input type="text" id="name" placeholder="Nama Anda" required />
+        <textarea id="message" rows="3" placeholder="Tulis doa dan ucapan terbaik..." required></textarea>
+        <button class="btn" type="submit">Kirim Ucapan</button>
+      </form>
+      <div class="wish-list" id="wishList"></div>
+    </div>
 
-<footer>
-Terima kasih atas doa dan kehadirannya 🤍
-</footer>
+    <div class="section" data-aos="fade-up">
+      <h2>QS. Ar-Rum Ayat 21</h2>
+      <p class="ayat">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan
+        untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya,
+        dan dijadikan-Nya di antara kamu rasa kasih dan sayang."
+      </p>
+    </div>
 
-</div>
+    <footer>
+      Terima kasih atas doa dan kehadirannya 🤍
+    </footer>
+  </div>
 
-<script>
+  <button id="musicToggle" onclick="toggleMusic()">🔊</button>
 
-/* BUTTON OPEN */
-let musicPlaying = false;
-
-function openInvite(){
-  document.getElementById("opening").style.display="none";
-  document.getElementById("content").style.display="block";
-
-  const music = document.getElementById("music");
-
-  if(music && !musicPlaying){
-    music.volume = 0; // mulai dari 0
-    music.play().catch(()=>{});
-    musicPlaying = true;
-
-    // FADE IN MUSIC
-    let vol = 0;
-    const fade = setInterval(()=>{
-      if(vol < 0.4){
-        vol += 0.02;
-        music.volume = vol;
-      } else {
-        clearInterval(fade);
-      }
-    },200);
-  }
-}
-</script>
-  <script>
-function toggleMusic(){
-  const music = document.getElementById("music");
-  const btn = document.getElementById("musicToggle");
-
-  if(!music) return;
-
-  if(music.paused){
-    music.play();
-    btn.innerHTML = "🔊";
-  } else {
-    music.pause();
-    btn.innerHTML = "🔇";
-  }
-}
-  </script>
-<script>
-const targetDate = new Date("March 3, 2026 04:30:00").getTime();
-
-function updateCountdown() {
-
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    `
-    <h3>${days} Hari</h3>
-    <h3>${hours} Jam</h3>
-    <h3>${minutes} Menit</h3>
-    <h3>${seconds} Detik</h3>
-    `;
-}
-
-// jalan tiap 1 detik (INI YANG BIKIN GERAK TERUS)
-setInterval(updateCountdown, 1000);
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-</script>
-
-</script>
-<audio id="music" loop>
-  <source src="musik.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicToggle" 
-  onclick="toggleMusic()">🔊</button>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 120
+    });
 
-<script>
-  AOS.init({
-  duration: 1200,
-  easing: 'ease-out-cubic',
-  once: true,
-  offset: 120
-});
-</script>
+    const targetDate = new Date("March 3, 2026 04:30:00").getTime();
+    let musicPlaying = false;
+
+    function openInvite() {
+      document.getElementById("opening").style.display = "none";
+      document.getElementById("content").style.display = "block";
+
+      const music = document.getElementById("music");
+      if (music && !musicPlaying) {
+        music.volume = 0;
+        music.play().catch(() => {});
+        musicPlaying = true;
+
+        let vol = 0;
+        const fade = setInterval(() => {
+          if (vol < 0.4) {
+            vol += 0.02;
+            music.volume = vol;
+          } else {
+            clearInterval(fade);
+          }
+        }, 200);
+      }
+
+      updateCountdown();
+      loadWishes();
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("music");
+      const btn = document.getElementById("musicToggle");
+      if (!music) return;
+
+      if (music.paused) {
+        music.play().catch(() => {});
+        btn.innerHTML = "🔊";
+      } else {
+        music.pause();
+        btn.innerHTML = "🔇";
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+      const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+      const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+      const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
+
+      document.getElementById("countdown").innerHTML = `
+        <div class="time-box">${days}<span>Hari</span></div>
+        <div class="time-box">${hours}<span>Jam</span></div>
+        <div class="time-box">${minutes}<span>Menit</span></div>
+        <div class="time-box">${seconds}<span>Detik</span></div>
+      `;
+    }
+
+    function getWishes() {
+      try {
+        return JSON.parse(localStorage.getItem("wishes") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWishes(wishes) {
+      localStorage.setItem("wishes", JSON.stringify(wishes.slice(0, 20)));
+    }
+
+    function loadWishes() {
+      const wishList = document.getElementById("wishList");
+      wishList.innerHTML = "";
+      const wishes = getWishes();
+
+      wishes.forEach((wish) => {
+        const item = document.createElement("div");
+        item.className = "wish-item";
+        item.innerHTML = `<strong>${escapeHtml(wish.name)}</strong><p>${escapeHtml(wish.message)}</p>`;
+        wishList.appendChild(item);
+      });
+    }
+
+    function addWish(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById("name");
+      const messageInput = document.getElementById("message");
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!name || !message) return;
+
+      const wishes = getWishes();
+      wishes.unshift({ name, message });
+      saveWishes(wishes);
+      loadWishes();
+      event.target.reset();
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll("\"", "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
